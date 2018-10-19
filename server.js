@@ -8,6 +8,7 @@ const planetsController = require('./controllers/planets')
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(morgan('short'));
+app.use(express.static('static'))
 require('./db/db');
 
 
