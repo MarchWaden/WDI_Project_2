@@ -3,14 +3,7 @@ const router  = express.Router();
 const Planet = require('../models/planets');
 const User = require('../models/users');
 
-router.get('/', async (req, res) => {
-    try{
-        const users = await User.find({});
-        res.render('users/index.ejs', {users});
-    } catch(err){
-        res.send(err);
-    }
-})
+
 router.get('/new', (req, res) => {
     res.render('users/new.ejs');
 })
@@ -43,6 +36,13 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-
+router.get('/', async (req, res) => {
+    try{
+        const users = await User.find({});
+        res.render('users/index.ejs', {users});
+    } catch(err){
+        res.send(err);
+    }
+})
 
 module.exports = router;

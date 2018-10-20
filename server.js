@@ -3,8 +3,8 @@ const app        = express();
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
-//const usersController = require('./controllers/users');
-//const planetsController = require('./controllers/planets');
+const usersController = require('./controllers/usersControllers');
+const planetsController = require('./controllers/planetsControllers');
 
 const port = 3000;
 
@@ -13,11 +13,11 @@ app.use(methodOverride('_method'));
 app.use(morgan('short'));
 app.use(express.static('static'));
 
-//require('./db/db');
+require('./db/db');
 
 
-//app.use('/users', usersController);
-//app.use('/planets', planetsController);
+app.use('/users', usersController);
+app.use('/planets', planetsController);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
