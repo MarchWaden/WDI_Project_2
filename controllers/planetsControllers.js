@@ -3,14 +3,7 @@ const router  = express.Router();
 const Planet = require('../models/planets');
 const User = require('../models/users');
 
-router.get('/',  async (req, res) => {
-    try {
-        const planets = await Planet.find({});
-        res.render('planets/index.ejs', {planets});
-    } catch(err){
-        res.send(err);
-    }
-})
+
 router.get('/new', async (req, res) => {
     try {
         const users = await User.find({})
@@ -37,7 +30,7 @@ router.get('/:id', async (req, res) => {
         res.render('planets/show.ejs', {user, planet});
     } catch(err){
         res.send(err);
-    }    
+    }
 })
 router.delete('/:id', async (req, res) => {
     try {
@@ -58,6 +51,14 @@ router.get('/:id/edit', async (req, res) => {
         res.render('planets/edit.ejs', {users, planet});
     } catch(err){
         res.send(err)
+    }
+})
+router.get('/',  async (req, res) => {
+    try {
+        const planets = await Planet.find({});
+        res.render('planets/index.ejs', {planets});
+    } catch(err){
+        res.send(err);
     }
 })
 router.put('/:id', async (req, res) => {
