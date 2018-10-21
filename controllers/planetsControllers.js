@@ -3,7 +3,6 @@ const router  = express.Router();
 const Planet = require('../models/planets');
 const User = require('../models/users');
 
-
 router.get('/new', async (req, res) => {
     try {
         const users = await User.find({})
