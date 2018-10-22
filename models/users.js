@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Photo = require('./photos');
+const Planet = require('./planets');
 
 const userSchema = new mongoose.Schema ({
     name:  String, 
