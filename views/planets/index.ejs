@@ -7,6 +7,9 @@
   </head>
   <body>
     <%- include('../partials/_navbar');%>
-    <script src="/game/main.js"
+    <h2>Here is a list of all systems in the galaxy!</h2>
+    <% for(i=0;i<planets.length;i++){%>
+    <a href="planets/<%=planets[i].id%>"><%=planets[i].name%></a>
+    <%}%>
   </body>
 </html>

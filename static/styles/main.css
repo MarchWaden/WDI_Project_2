@@ -1,0 +1,22 @@
+body {
+  background-color: black;
+  color: white;
+  text-align: center;
+  background-image: url("../assets/images/starfield.jpg");
+}
+a {
+  color: white;
+  margin: 15px;
+}
+div {
+  margin: 0px auto;
+}
+p {
+  margin: 30px auto;
+}
+input{
+  margin: 2px auto;
+}
+textarea{
+    margin: 2px auto;
+}
