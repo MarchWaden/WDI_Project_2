@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Planet Creation</title>
+    <%- include('../partials/_header');%>
+  </head>
+  <body>
+    <%- include('../partials/_navbar');%>
+    <p>
+    <div>
+      Create new planet!
+    </div>
+    <div>
+    <form action="/planets" method="post">
+    Name:<input type="text" name="name"></input></br>
+    Description:<textarea name="description"></textarea></br>
+    <input type="submit" value="Submit Planet!"></input
+    </form>
+    </div>
+    </p>
+  </body>
+</html>

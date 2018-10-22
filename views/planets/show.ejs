@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>View Planet</title>
+    <%- include('../partials/_header');%>
+  </head>
+  <body>
+    <%- include('../partials/_navbar');%>
+    <div>
+      <%=planet.name%></br>
+      <%=planet.about%></br>
+      x: <%=planet.x, y: <%=planet.y%>
+    </div>
+  </body>
+</html>
