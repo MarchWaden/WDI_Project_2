@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const morgan = require('morgan');
 const usersController = require('./controllers/usersControllers');
 const planetsController = require('./controllers/planetsControllers');
-const gameController = require('./controllers/gameControllers');
+const gameController = require('./controllers/gameController');
 
 const port = 3000;
 
