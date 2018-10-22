@@ -16,9 +16,12 @@ router.post('/', async (req, res) => {
         const user = await User.findById(req.body.userId);
         const planet = await Planet.create(req.body);
         user.planets.push(planet);
+        Planet.push(planet);
         await user.save();
+        console.log("REDIRECTING TO PLANETS")
         res.redirect('/planets');
     } catch(err){
+        console.log(err);
         res.send(err);
     }
 })
@@ -55,6 +58,7 @@ router.get('/:id/edit', async (req, res) => {
 router.get('/',  async (req, res) => {
     try {
         const planets = await Planet.find({});
+        console.log("PLANET INDEX")
         res.render('planets/index.ejs', {planets});
     } catch(err){
         res.send(err);
