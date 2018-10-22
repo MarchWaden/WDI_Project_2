@@ -2,11 +2,15 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>View Planet</title>
     <%- include('../partials/_header');%>
   </head>
   <body>
     <%- include('../partials/_navbar');%>
-    <script src="/game/main.js"
+    <div>
+      <%=planet.name%></br>
+      <%=planet.about%></br>
+      x: <%=planet.x, y: <%=planet.y%>
+    </div>
   </body>
 </html>

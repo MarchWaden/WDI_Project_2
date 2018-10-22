@@ -7,6 +7,9 @@
   </head>
   <body>
     <%- include('../partials/_navbar');%>
-    <script src="/game/main.js"
+    <h2>Here is a list of all users!</h2>
+    <% for(i=0;i<users.length;i++){%>
+    <a href="planets/<%=users[i].id%>"><%=users[i].name%></a>
+    <%}%>
   </body>
 </html>
