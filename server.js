@@ -19,7 +19,7 @@ require('./db/db');
 
 app.use('/users', usersController);
 app.use('/planets', planetsController);
-app.use('/planets', gameController);
+app.use('/game', gameController);
 
 app.get('/', (req, res) => {
   res.render('index.ejs');
