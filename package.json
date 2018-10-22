@@ -17,9 +17,11 @@
   },
   "homepage": "https://github.com/MarchWaden/WDI_Project_2#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
+    "express-session": "^1.15.6",
     "method-override": "^3.0.0",
     "mongoose": "^5.3.4",
     "morgan": "^1.9.1"
