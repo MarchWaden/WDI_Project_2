@@ -2,7 +2,12 @@ const mongoose = require('mongoose');
 
 
 const planetSchema = new mongoose.Schema ({
-    user:  String, 
+    name: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    user: String,
     img: String,
     about: String,
 

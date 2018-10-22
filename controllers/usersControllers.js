@@ -7,14 +7,6 @@ const User = require('../models/users');
 router.get('/new', (req, res) => {
     res.render('users/new.ejs');
 })
-router.post('/', async (req, res) => {
-    try{
-        const user = await User.create(req.body);
-        res.redirect('/users')
-    }catch(err){
-        res.send(err);
-    }
-})
 router.get('/:id' , async (req, res) => {
     try {
         const user = await User.findById(req.params.id);

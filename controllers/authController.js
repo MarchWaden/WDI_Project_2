@@ -5,8 +5,14 @@ const bcrypt  = require('bcryptjs');
 
 //login
 router.get('/login', (req, res) => {
-  res.render('auth/auth.ejs', {
-    message: req.session.message
+  let message = "";
+  if(req.session){
+    if(req.session.message){
+      message = req.session.message;
+    }
+  }
+  res.render('auth/login.ejs', {
+    message: message
   });
 });
 //register
@@ -20,30 +26,35 @@ router.post('/register', async (req, res) => {
   userEntry.username = req.body.username;
   userEntry.password = passwordHash;
 
-  const user = await User.create(userEntry);
-  console.log(`the user info is ${user}`);
-  req.session.logged   = true;
-  req.session.message  = '';
-  res.redirect('/auth/login');
+  const user = await User.create(userEntry)
+    console.log(`the user info is ${user}`);
+    req.session.username = user;
+    req.session.logged   = true;
+    req.session.message  = '';
+    res.redirect('/auth/login');
 });
 
 //login
 router.post('/login', async (req, res) => {
   try {
+      console.log(req.session, 'req.session');
           const foundUser = await User.findOne({username: req.body.username});
           console.log(foundUser)
           if(foundUser){
+            console.log(foundUser.password);
             if(bcrypt.compareSync(req.body.password, foundUser.password)){
+              console.log('compare checked out')
               req.session.logged = true;
-              res.redirect('/reviews')
+              res.redirect('/')
             } else {
+              console.log('compare false')
               req.session.message = 'Username or Password is Wrong';
               res.redirect('/auth/login')
             }
         } else {
               req.session.message = 'Username or Password is Wrong';
               res.redirect('/auth/login')
-            } 
+            }
     } catch(err) {
     res.send('error')
   }
