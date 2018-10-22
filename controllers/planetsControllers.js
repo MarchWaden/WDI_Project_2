@@ -13,7 +13,7 @@ router.get('/new', async (req, res) => {
 })
 router.post('/', async (req, res) => {
     try {
-        const user = await User.findById(req.body.userId);
+        const user = await User.findById(req.session.user);
         const planet = await Planet.create(req.body);
         user.planets.push(planet);
         Planet.push(planet);

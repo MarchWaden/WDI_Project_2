@@ -1,10 +1,10 @@
 const express = require('express');
 const router  = express.Router();
-const Planet = require('../models/planets');
+const Planets = require('../models/planets');
 const User = require('../models/users');
 
-router.get('/',  async (req, res) => {
-    res.render('game/index.ejs', {planets});
+router.get('/', (req, res) => {
+    res.render('game/game.ejs');
 });
 
 module.exports = router;

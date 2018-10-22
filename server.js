@@ -34,6 +34,16 @@ app.use((req, res, next)=>{
 require('./db/db');
 
 
+app.use((req, res, next) => {
+  if (req.session){
+    res.locals.user = req.session.user;
+  }else{
+    res.locals.user = null;
+  }
+  next();
+
+})
+
 app.use('/users', usersController);
 app.use('/planets', planetsController);
 app.use('/game', gameController);
