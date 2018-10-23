@@ -2,7 +2,11 @@
   <a href="/game">Play the game!</a>
   <a href="/planets/new">Create a planet!</a>
   <a href="/planets">View planetary database!</a>
-  <a href="/auth/login">Login!</a>
-  <a href="/users/new">Create an account!</a>
-  <%=user.username%>
+  <%if(typeof(user.username) !== 'undefined'){%>
+    <a href="/users/<%=user._id%>"><%=user.username%></a>
+    <a href="/auth/logout">Log out!</a>
+  <%}else{%>
+    <a href="/auth/login">Log in!</a>
+    <a href="/users/new">Register an account!</a>
+  <%}%>
 </navbar>

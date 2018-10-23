@@ -8,10 +8,10 @@
   <body>
     <%- include('../partials/_navbar');%>
     <div>
-      <%=creator.username%>
-      <%=planet.name%></br>
-      <%=planet.about%></br>
-      x: <%=planet.x%> y: <%=planet.y%>
+      <h1><%=planet.name%></br></h1>
+      <h4>Created by: <%=creator.username%></br></h4>
+      x: <%=planet.x%> y: <%=planet.y%></br>
+      <%=planet.about%>
     </div>
   </body>
 </html>

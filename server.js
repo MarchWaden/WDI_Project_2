@@ -9,11 +9,14 @@ const gameController = require('./controllers/gameController');
 const authController = require('./controllers/authController');
 const bcrypt = require('bcryptjs');
 const session = require('express-session')
+const requireLogin = require('./middleware/requireLogin')
+
 app.use(session({
   saveUninitialized: false,
   resave: false,
   secret: 'sneakysneaky'
 }));
+
 
 const port = 3000;
 
@@ -21,26 +24,26 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(morgan('short'));
 app.use(express.static('static'));
+
 app.use((req, res, next)=>{
-  if(req.session){
-    if(req.session.message){
-      res.locals.message = req.session.message;
-      delete req.session.message;
-    }
+  if(!req.session){
+    req.session = {};
   }
+  if(typeof(req.session.user) == 'undefined'){
+    req.session.user = {};
+  }
+  res.locals.user = req.session.user || {};
+  if(req.session.message){
+    res.locals.message = req.session.message;
+    delete req.session.message;
+    }
   next();
 })
 
 require('./db/db');
 
-
-app.use((req, res, next) => {
-    res.locals.user = req.session.user || {};
-    next();
-});
-
 app.use('/users', usersController);
-app.use('/planets', planetsController);
+app.use('/planets',requireLogin, planetsController);
 app.use('/game', gameController);
 app.use('/auth', authController);
 
