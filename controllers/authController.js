@@ -44,7 +44,12 @@ router.post('/login', async (req, res) => {
             console.log(foundUser.password);
             if(bcrypt.compareSync(req.body.password, foundUser.password)){
               console.log('compare checked out')
+              req.session.user = {};
               req.session.logged = true;
+              req.session.user.username = foundUser.username;
+              req.session.user.password = foundUser.password;
+              req.session.user._id = foundUser._id;
+              req.session.message  = '';
               res.redirect('/')
             } else {
               console.log('compare false')

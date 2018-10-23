@@ -35,18 +35,9 @@ require('./db/db');
 
 
 app.use((req, res, next) => {
-  console.log(req.session);
-  if(req.session.message){
-    res.locals.message = req.session.message;
-  }
-  if (req.session.user){
-    res.locals.user = req.session.user.username;
-  }else{
-    res.locals.user = "Not logged in";
-  }
-  next();
-
-})
+    res.locals.user = req.session.user || {};
+    next();
+});
 
 app.use('/users', usersController);
 app.use('/planets', planetsController);

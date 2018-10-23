@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
     try {
         const user = await User.findById(req.session.user._id);
         const planet = await Planet.create(req.body);
-        user.planets.push(planet);
+        user.planets.push(planet._id);
         await user.save();
         console.log("REDIRECTING TO PLANETS")
         res.redirect('/planets');
@@ -26,9 +26,10 @@ router.post('/', async (req, res) => {
 })
 router.get('/:id', async (req, res) => {
     try {
-        const user = await User.findOne({'planets._id': req.params.id});
+        const creator = await User.findOne({'planets': req.params.id});
+        console.log(creator)
         const planet = await Planet.findById(req.params.id);
-        res.render('planets/show.ejs', {user, planet});
+        res.render('planets/show.ejs', {creator, planet});
     } catch(err){
         res.send(err);
     }

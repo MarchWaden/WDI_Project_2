@@ -10,7 +10,7 @@ const planetSchema = new mongoose.Schema ({
     about: String,
     x: Number,
     y: Number,
-    user: [{type: mongoose.Schema.Types.ObjectId, ref: 'Users'}]
+    user: {type: mongoose.Schema.Types.ObjectId, ref: 'Users'}
 })
 
 module.exports = mongoose.model('Planet', planetSchema);
