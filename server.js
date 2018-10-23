@@ -35,10 +35,14 @@ require('./db/db');
 
 
 app.use((req, res, next) => {
-  if (req.session){
-    res.locals.user = req.session.user;
+  console.log(req.session);
+  if(req.session.message){
+    res.locals.message = req.session.message;
+  }
+  if (req.session.user){
+    res.locals.user = req.session.user.username;
   }else{
-    res.locals.user = null;
+    res.locals.user = "Not logged in";
   }
   next();
 

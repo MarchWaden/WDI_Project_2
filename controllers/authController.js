@@ -28,7 +28,7 @@ router.post('/register', async (req, res) => {
 
   const user = await User.create(userEntry)
     console.log(`the user info is ${user}`);
-    req.session.username = user;
+    req.session.user = user;
     req.session.logged   = true;
     req.session.message  = '';
     res.redirect('/auth/login');

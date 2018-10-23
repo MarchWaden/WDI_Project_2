@@ -13,10 +13,9 @@ router.get('/new', async (req, res) => {
 })
 router.post('/', async (req, res) => {
     try {
-        const user = await User.findById(req.session.user);
+        const user = await User.findById(req.session.user._id);
         const planet = await Planet.create(req.body);
         user.planets.push(planet);
-        Planet.push(planet);
         await user.save();
         console.log("REDIRECTING TO PLANETS")
         res.redirect('/planets');
