@@ -4,11 +4,17 @@
     <meta charset="utf-8">
     <title>Stellarium</title>
   <%- include('partials/_header');%>
+  <h1 class = 'welcome'>Welcome to Stellarium!</h1>
+      <%- include('partials/_navbar');%>
   </head>
   <div class = 'container'>
+      <div class="row">
+        <div class = 'col bigPlanet'>
+          <img src = "../assets/images/welcome-planet.png">
+        </div>     
   <body>
-      <h1>Welcome to Stellarium!</h1>
-      <%- include('partials/_navbar');%>
+      
   </body>
+  </div>
   </div>
 </html>

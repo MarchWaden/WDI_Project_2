@@ -6,21 +6,25 @@
     <%- include('../partials/_header');%>
   </head>
   <div class = 'container'>
+   
   <body>
     <%- include('../partials/_navbar');%>
     <p>
-    <div>
-      Create new planet!
+      <div class = 'row'>
+        <div class = 'col 4 createPlanet'>
+            <h4>Create new planet</h4>
+          <form action="/planets" method="post">
+            Name:<input type="text" name="name">
+            Description:<textarea name="about"></textarea>
+            Planet X Coordinate<input type="number" name="x">Planet Y Coordinate:<input type="number" name="y">
+            <input type="submit" value="Submit Planet!">
+          </form>
+      </div>
+      <div class = 'col 8'>
+        <img src = '../assets/images/create-planet.png'>
+      </div>
     </div>
-    <div>
-    <form action="/planets" method="post">
-    Name:<input type="text" name="name"></input></br>
-    Description:<textarea name="about"></textarea></br>
-    Planet X Coordinate<input type="number" name="x"></input>: PLanet Y Coordinate:<input type="number" name="y"></input></br>
-    <input type="submit" value="Submit Planet!"></input>
-    </form>
-    </div>
-    </p>
+  </p>
   </body>
-</div>
+  </div>
 </html>
