@@ -1,3 +1,4 @@
-console.log('javascript is working!')
-$("body").append('<h1>This is a test of jQuery</h1>');
-$("body").append('')
+let width = $('#Maincanvas')['0'].clientWidth
+console.log(width);
+let height = $('#Maincanvas')['0'].clientHeight
+console.log(height);
