@@ -7,7 +7,19 @@
     <%- include('../partials/_header');%>
   </head>
   <body>
-    <%- include('../partials/_navbar');%>
+    <div class="container-fluid">
+      <%- include('../partials/_navbar');%>
+      <div id="Gamemain" class="row">
+        <div class="col-sm-2">Inventory</div>
+        <div id="Maincanvas" class="col-sm-8">
+        <canvas  id="astrogation" height="500" width="800"></canvas>
+        </div>
+        <div class="col-sm-2">Info</div>
+      </div>
+      <div id="Gameinfo" class="row">
+        <div class="col-sm-12 bg-info">Stuff</div>
+      </div>
+    </div>
     <script src="/game/main.js"></script>
   </body>
 </html>

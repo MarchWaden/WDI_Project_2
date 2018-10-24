@@ -1,9 +1,12 @@
-<navbar id="Navbar">
+<div id="Navbar" class="row">
+  <div class="col-sm-8 text-left">
   <%if(typeof(user.username) !== 'undefined'){%>
     <a href="/game">Play the game!</a>
     <a href="/planets/new">Create a planet!</a>
   <%}%>
   <a href="/planets">View planetary database!</a>
+  </div>
+  <div class="col-sm-4 text-right">
   <%if(typeof(user.username) !== 'undefined'){%>
     <a href="/users/<%=user._id%>"><%=user.username%></a>
     <a href="/auth/logout">Log out!</a>
@@ -11,4 +14,6 @@
     <a href="/auth/login">Log in!</a>
     <a href="/users/new">Register an account!</a>
   <%}%>
-</navbar>
+  </div>
+</div>
+<div class="row" id="Navprotector"></div>

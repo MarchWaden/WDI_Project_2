@@ -21,3 +21,31 @@ input{
 textarea{
     margin: 2px auto;
 }
+.container-fluid {
+  height: 100%;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+#Gamemain {
+  height: 29.5em;
+  overflow: hidden;
+}
+#Gameinfo {
+  height: 2em;
+  overflow: hidden;
+}
+#Navbar {
+  background-color: #FF9900;
+  height: 3%;
+  overflow: hidden;
+  padding: 1.5%;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+}
+.row {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
