@@ -10,14 +10,34 @@ const authController = require('./controllers/authController');
 const bcrypt = require('bcryptjs');
 const session = require('express-session')
 const requireLogin = require('./middleware/requireLogin')
+const MongoDBStore = require('connect-mongodb-session')(session);
+const store = new MongoDBStore({
+  uri: 'mongodb://localhost:27017/connect_mongodb_session_test',
+  collection: 'mySessions'
+});
+store.on('connected', function() {
+  store.client; // The underlying MongoClient object from the MongoDB driver
+  console.log("THE STORE IS CONNECTED")
+});
+
+store.on('error', function(error) {
+  console.log(error)
+});
+
 
 app.use(session({
-  saveUninitialized: false,
-  resave: false,
-  secret: 'sneakysneaky'
+  secret: 'This is a secret',
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+  },
+  store: store,
+  // Boilerplate options, see:
+  // * https://www.npmjs.com/package/express-session#resave
+  // * https://www.npmjs.com/package/express-session#saveuninitialized
+  resave: true,
+  saveUninitialized: true
 }));
-
-
+ 
 const port = 3000;
 
 app.use(bodyParser.urlencoded({extended: false}));
