@@ -1,6 +1,8 @@
 <navbar id="Navbar">
-  <a href="/game">Play the game!</a>
-  <a href="/planets/new">Create a planet!</a>
+  <%if(typeof(user.username) !== 'undefined'){%>
+    <a href="/game">Play the game!</a>
+    <a href="/planets/new">Create a planet!</a>
+  <%}%>
   <a href="/planets">View planetary database!</a>
   <%if(typeof(user.username) !== 'undefined'){%>
     <a href="/users/<%=user._id%>"><%=user.username%></a>
