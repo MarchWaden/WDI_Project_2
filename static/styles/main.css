@@ -49,6 +49,7 @@ textarea{
   padding: 0px;
   margin: 0px;
 }
+<<<<<<< HEAD
 .welcome {
 margin: 30px
 }
@@ -62,3 +63,8 @@ margin: 30px
 
 
 
+=======
+#Astrogation{
+  border: solid green 2px;
+}
+>>>>>>> Max
