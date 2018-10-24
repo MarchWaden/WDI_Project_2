@@ -5,6 +5,7 @@
     <title>View Planet</title>
     <%- include('../partials/_header');%>
   </head>
+  <div class = 'container'>
   <body>
     <%- include('../partials/_navbar');%>
     <div>
@@ -12,6 +13,8 @@
       <h4>Created by: <%=creator.username%></br></h4>
       x: <%=planet.x%> y: <%=planet.y%></br>
       <%=planet.about%>
+      <a href="/planets/<%=planet._id%>/edit">Edit this planet!</a>
     </div>
   </body>
+  </div>
 </html>

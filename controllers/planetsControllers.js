@@ -14,6 +14,7 @@ router.get('/new', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const user = await User.findById(req.session.user._id);
+        req.body.user = res.locals.user
         const planet = await Planet.create(req.body);
         user.planets.push(planet._id);
         await user.save();
@@ -22,6 +23,23 @@ router.post('/', async (req, res) => {
     } catch(err){
         console.log(err);
         res.send(err);
+    }
+})
+router.get('/:id/edit', async (req, res) => {
+    try{
+        const users = await User.find({});
+        const planet = await Planet.findById(req.params.id);
+        console.log(`this is planet: ${planet}`);
+        console.log(`this is planet.user: ${planet.user}`);
+        console.log(res.locals.user._id)
+        if(`${res.locals.user._id}` == `${planet.user}`){
+            res.render('planets/edit.ejs',{users, planet});
+        } else {
+            console.log('if check failed')
+        res.redirect(`/planets/${req.params.id}`);
+        }
+    } catch(err){
+        res.send(err)
     }
 })
 router.get('/:id', async (req, res) => {
@@ -46,15 +64,7 @@ router.delete('/:id', async (req, res) => {
         res.send(err);
     }
 })
-router.get('/:id/edit', async (req, res) => {
-    try{
-        const users = await User.find({});
-        const planet = await Planet.findById(req.params.id);
-        res.render('planets/edit.ejs', {users, planet});
-    } catch(err){
-        res.send(err)
-    }
-})
+
 router.get('/',  async (req, res) => {
     try {
         const planets = await Planet.find({});
@@ -66,18 +76,12 @@ router.get('/',  async (req, res) => {
 })
 router.put('/:id', async (req, res) => {
     try {
-        const newUser = await User.findOne({'_id': req.body.userId});
-        const planet = await Planet.findById(req.params.id);
-        const oldUser = await User.findOne({'planets._id': planet._id})
-        await Planet.findByIdAndUpdate(req.params.id, req.body);
-        for (let i = 0; i < oldUser.planets.length; i++){
-            if (`${oldUser.planets[i]._id}` === `${planet._id}`){
-                await oldUser.planets.splice(i, 1);
-            }
-        }
-        newUser.planets.push(planet);
-        await newUser.save();
-        await oldUser.save();
+        const planet = await Planet.findById(req.params.id)
+        planet.name = req.body.name
+        planet.about = req.body.about
+        planet.x  = req.body.x
+        planet.y = req.body.y
+        await planet.save()
         res.redirect(`/planets/${req.params.id}`)
     } catch(err){
         res.send(err);
