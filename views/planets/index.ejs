@@ -7,7 +7,7 @@
   </head>
   <body>
     <%- include('../partials/_navbar');%>
-    <h2>Here is a list of all systems in the galaxy!</h2>
+    <h2>Planetary systems:</h2>
     <% for(i=0;i<planets.length;i++){%>
     <a href="planets/<%=planets[i].id%>"><%=planets[i].name%></a></br>
     <%}%>
