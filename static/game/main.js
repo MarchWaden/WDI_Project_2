@@ -3,14 +3,14 @@ let currentX = 0;
 let currentY = 0;
 let x = 0;
 let y = 0;
-let currentWidth = 800;
-let currentHeight = 500;
+let currentWidth = 1100;
+let currentHeight = 550;
 let clock = 0;
 let images = [];
 const iceDwarf = new Image()
 const mars = new Image()
 const volcanicPlanet = new Image()
-$('#Maincanvas').html(`<canvas height="500" width="800" id="Astrogation"></canvas>`);
+$('#Maincanvas').html(`<canvas height="700" width="1050" id="Astrogation"></canvas>`);
 
 let ctx = document.getElementById('Astrogation');
 ctx = ctx.getContext('2d');

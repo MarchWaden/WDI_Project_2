@@ -70,17 +70,6 @@ textarea{
   align-items: flex-start
 /* align-content: left; */
 }
-#Astrogation{
-  border: solid green 2px;
-}
 #Information{
-  border: solid green 2px;
   background-color: rgba(.5,.5,.5,.3);
-}
-#Inventory{
-  border: solid green 2px;
-  background-color: rgba(.5,.5,.5,.3);
-}
-#Maincanvas{
-  border: solid green 2px;
 }
