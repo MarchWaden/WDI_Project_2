@@ -49,7 +49,6 @@ textarea{
   padding: 0px;
   margin: 0px;
 }
-<<<<<<< HEAD
 .welcome {
 margin: 30px
 }
@@ -60,11 +59,15 @@ margin: 30px
   align-items: flex-start
 /* align-content: left; */
 }
-
-
-
-=======
 #Astrogation{
   border: solid green 2px;
 }
->>>>>>> Max
+#Information{
+  border: solid green 2px;
+}
+#Inventory{
+  border: solid green 2px;
+}
+#Maincanvas{
+  border: solid green 2px;
+}
