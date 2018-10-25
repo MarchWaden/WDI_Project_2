@@ -51,21 +51,6 @@ textarea{
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-#Astrogation{
-  border: solid green 2px;
-}
 .hvr-pulse {
   display: inline-block;
   vertical-align: middle;
@@ -78,3 +63,22 @@ textarea{
 .hvr-pulse-grow:active {
   transform: scale(1.1);
   }
+
+.createPlanet {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+/* align-content: left; */
+}
+#Astrogation{
+  border: solid green 2px;
+}
+#Information{
+  border: solid green 2px;
+}
+#Inventory{
+  border: solid green 2px;
+}
+#Maincanvas{
+  border: solid green 2px;
+}
