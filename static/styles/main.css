@@ -58,8 +58,8 @@ textarea{
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
-.hvr-pulse-grow:hover, 
-.hvr-pulse-grow:focus, 
+.hvr-pulse-grow:hover,
+.hvr-pulse-grow:focus,
 .hvr-pulse-grow:active {
   transform: scale(1.1);
   }
@@ -75,9 +75,11 @@ textarea{
 }
 #Information{
   border: solid green 2px;
+  background-color: rgba(.5,.5,.5,.3);
 }
 #Inventory{
   border: solid green 2px;
+  background-color: rgba(.5,.5,.5,.3);
 }
 #Maincanvas{
   border: solid green 2px;
