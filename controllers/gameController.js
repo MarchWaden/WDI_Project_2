@@ -15,7 +15,8 @@ router.get('/planets', async (req, res) => {
         x: planets[i].x,
         y: planets[i].y,
         about: planets[i].about,
-        creator: user.username
+        creator: user.username,
+        image: planets[i].image
       }
       usablePlanets.push(planet);
   }

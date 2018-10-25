@@ -6,7 +6,7 @@
     <%- include('../partials/_header');%>
   </head>
   <div class = 'container'>
-   
+
   <body>
     <%- include('../partials/_navbar');%>
     <p>
@@ -16,7 +16,8 @@
           <form action="/planets" method="post">
             Name:<input type="text" name="name">
             Description:<textarea name="about"></textarea>
-            Planet X Coordinate<input type="number" name="x">Planet Y Coordinate:<input type="number" name="y">
+            Planet X Coordinate:<input type="number" name="x">Planet Y Coordinate:<input type="number" name="y">
+            Planet Image:<input type="number" name="image"></input>
             <input type="submit" value="Submit Planet!">
           </form>
       </div>
