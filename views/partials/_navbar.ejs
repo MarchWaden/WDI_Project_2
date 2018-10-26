@@ -2,10 +2,10 @@
   <div class="col-sm-8 text-left">
   <%if(typeof(user.username) !== 'undefined'){%>
     <a href="/" class ="hvr-back-pulse navbox">Home</a>
-    <a href="/game" class ="hvr-back-pulse navbox">Play the Game!</a>
-    <a href="/planets/new" class="hvr-back-pulse navbox">Create a Planet!</a>
+    <a href="/game" class ="hvr-back-pulse navbox">View the Local Cluster</a>
+    <a href="/planets/new" class="hvr-back-pulse navbox">Create a Planet</a>
   <%}%>
-  <a href="/planets" class="hvr-back-pulse navbox">View Planetary Database!</a>
+  <a href="/planets" class="hvr-back-pulse navbox">View Planetary Database</a>
   </div>
   <div class="col-sm-4 text-right">
   <%if(typeof(user.username) !== 'undefined'){%>
@@ -13,7 +13,7 @@
     <a href="/auth/logout">Log Out</a>
   <%}else{%>
     <a href="/auth/login">Log In</a>
-    <a href="/users/new">Register an Account!</a>
+    <a href="/users/new">Register an Account</a>
   <%}%>
   </div>
 </div>
