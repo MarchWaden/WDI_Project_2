@@ -87,7 +87,7 @@ const selector = {
       }
 };
 const displayInfo = (object) => {
-  $('#Information').html(`Creator: ${object.creator} </br> Information: ${object.about}`);
+  $('#Information').html(`Name:${object.name}</br> Creator: ${object.creator} </br> Information: ${object.about}`);
 }
 const clearInfo = () => {
   $('#Information').html('');
