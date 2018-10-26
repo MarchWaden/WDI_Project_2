@@ -81,8 +81,8 @@ margin: 30px
   background-color: #2098d1;
   color: white;
 }
-.hvr-pulse-grow:hover, 
-.hvr-pulse-grow:focus, 
+.hvr-pulse-grow:hover,
+.hvr-pulse-grow:focus,
 .hvr-pulse-grow:active {
   transform: scale(1.1);
   }
@@ -96,6 +96,7 @@ margin: 30px
   align-items: flex-start
 /* align-content: left; */
 }
+
 .editPlanet {
   display: flex;
   flex-direction: column;
@@ -105,14 +106,9 @@ margin: 30px
 #Astrogation{
   border: solid green 2px;
 }
+
 #Information{
-  border: solid green 2px;
-}
-#Inventory{
-  border: solid green 2px;
-}
-#Maincanvas{
-  border: solid green 2px;
+  background-color: rgba(.5,.5,.5,.3);
 }
 .center {
   margin-left: auto;

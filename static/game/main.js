@@ -3,33 +3,37 @@ let currentX = 0;
 let currentY = 0;
 let x = 0;
 let y = 0;
-let currentWidth = 800;
-let currentHeight = 500;
+let currentWidth = 1100;
+let currentHeight = 550;
 let clock = 0;
+let images = [];
+const iceDwarf = new Image()
+const mars = new Image()
+const volcanicPlanet = new Image()
+$('#Maincanvas').html(`<canvas height="700" width="1050" id="Astrogation"></canvas>`);
 
 let ctx = document.getElementById('Astrogation');
 ctx = ctx.getContext('2d');
 ctx.strokeStyle = "red";
 ctx.fillStyle = "red";
 
-let testPlanet = {
-  x: 150,
-  y: 150,
-  img: "/assets/images/red_star.png",
-  about: "this is a test planet!"
-}
+  iceDwarf.addEventListener('load',() => {
+    console.log('stuff')
+  })
+  iceDwarf.src = '/assets/images/iceDwarf.png';
 
-const img = new Image()
+  mars.addEventListener('load',() => {
+    console.log('stuff')
+  })
+  mars.src = '/assets/images/mars.png';
 
-img.addEventListener ('load',() => {
-  console.log(img.src)
-})
-
-img.src = testPlanet.img;
-
-
-
-planets.push(testPlanet);
+  volcanicPlanet.addEventListener('load',() => {
+    console.log('stuff')
+  })
+  volcanicPlanet.src = '/assets/images/volcanicPlanet.png';
+images.push(iceDwarf);
+images.push(mars);
+images.push(volcanicPlanet);
 const getPlanets = () => {
   jQuery.ajax({
     url: "/game/planets",
@@ -127,7 +131,7 @@ const eventListeners = () => {
 
 }
 const render = (planet) =>{
-  ctx.drawImage(img,planet.x-currentX-25,planet.y-currentY-25,50,50);
+  ctx.drawImage(images[planet.image],planet.x-currentX-25,planet.y-currentY-25,50,50);
 }
 const renderPlanets = () => {
   for(i=0;i<planets.length;i++){
