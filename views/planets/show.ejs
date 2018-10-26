@@ -5,16 +5,21 @@
     <title>View Planet</title>
     <%- include('../partials/_header');%>
   </head>
-  <div class = 'container'>
+  
   <body>
     <%- include('../partials/_navbar');%>
-    <div>
-      <h1><%=planet.name%></br></h1>
-      <h4>Created by: <%=creator.username%></br></h4>
-      x: <%=planet.x%> y: <%=planet.y%></br>
-      <%=planet.about%>
-      <a href="/planets/<%=planet._id%>/edit">Edit this planet!</a>
-    </div>
+          <div class = 'container'></div>
+            <div class = 'row'>
+              <div class = 'col'>
+            <h1><%=planet.name%></br></h1>
+            <h4>Created by: <%=creator.username%></br></h4>
+            x: <%=planet.x%> y: <%=planet.y%></br>
+            <%=planet.about%>
+            <a href="/planets/<%=planet._id%>/edit">Edit this planet!</a>
+              </div>
+          </div>
+        </div>
+      </div>
   </body>
-  </div>
+</div>
 </html>

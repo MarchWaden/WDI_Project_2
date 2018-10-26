@@ -40,7 +40,7 @@ textarea{
   background-color: #FF9900;
   height: 3%;
   overflow: hidden;
-  padding: 1.5%;
+  padding: 0px;
   margin-top: 1.5%;
   margin-bottom: 1.5%;
 }
@@ -48,6 +48,9 @@ textarea{
   width: 100%;
   padding: 0px;
   margin: 0px;
+}
+.welcome {
+margin: 30px
 }
 
 
@@ -57,19 +60,57 @@ textarea{
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  overflow: hidden;
+  -webkit-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-back-pulse:hover, .hvr-back-pulse:focus, .hvr-back-pulse:active {
+  -webkit-animation-name: hvr-back-pulse;
+  animation-name: hvr-back-pulse;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-color: #2098D1;
+  background-color: #2098d1;
+  color: white;
 }
 .hvr-pulse-grow:hover,
 .hvr-pulse-grow:focus,
 .hvr-pulse-grow:active {
   transform: scale(1.1);
   }
-
+.navbox {
+  margin: 0px;
+  padding: 20px;
+}
 .createPlanet {
   display: flex;
   flex-direction: column;
   align-items: flex-start
 /* align-content: left; */
 }
+
+.editPlanet {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+/* align-content: left; */
+}
+#Astrogation{
+  border: solid green 2px;
+}
+
 #Information{
   background-color: rgba(.5,.5,.5,.3);
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }

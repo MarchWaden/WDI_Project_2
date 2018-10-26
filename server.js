@@ -63,7 +63,7 @@ app.use((req, res, next)=>{
 require('./db/db');
 
 app.use('/users', usersController);
-app.use('/planets',requireLogin, planetsController);
+app.use('/planets', planetsController);
 app.use('/game', gameController);
 app.use('/auth', authController);
 
