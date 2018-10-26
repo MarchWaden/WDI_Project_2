@@ -12,7 +12,7 @@ const session = require('express-session')
 const requireLogin = require('./middleware/requireLogin')
 const MongoDBStore = require('connect-mongodb-session')(session);
 const store = new MongoDBStore({
-  uri: 'mongodb://localhost:27017/connect_mongodb_session_test',
+  uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/connect_mongodb_session_test',
   collection: 'mySessions'
 });
 store.on('connected', function() {
