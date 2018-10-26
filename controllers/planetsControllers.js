@@ -2,8 +2,9 @@ const express = require('express');
 const router  = express.Router();
 const Planet = require('../models/planets');
 const User = require('../models/users');
+const requireLogin = require('../middleware/requireLogin')
 
-router.get('/new', async (req, res) => {
+router.get('/new', requireLogin, async (req, res) => {
     try {
         const users = await User.find({})
         res.render('planets/new.ejs', {users});
@@ -25,7 +26,7 @@ router.post('/', async (req, res) => {
         res.send(err);
     }
 })
-router.get('/:id/edit', async (req, res) => {
+router.get('/:id/edit', requireLogin, async (req, res) => {
     try{
         const users = await User.find({});
         const planet = await Planet.findById(req.params.id);
@@ -52,15 +53,23 @@ router.get('/:id', async (req, res) => {
         res.send(err);
     }
 })
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', requireLogin, async (req, res) => {
+    console.log('reached delete')
     try {
-        const user = await User.findOne({'planets._id': req.params.id});
+        
+        console.log('1')
         const planet = await Planet.findById(req.params.id);
-        user.planets.id(req.params.id).remove();
+        const user = await User.findById(planet.user)
+        console.log('2')
+        console.log('3')
         await Planet.findByIdAndDelete(req.params.id);
+        console.log('4')
         await user.save();
+        console.log('5')
         res.redirect('/planets');
+        console.log('6')
     } catch(err){
+        console.log(err)
         res.send(err);
     }
 })

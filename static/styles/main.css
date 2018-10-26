@@ -86,8 +86,17 @@ margin: 30px
 .hvr-pulse-grow:active {
   transform: scale(1.1);
   }
-
+.navbox {
+  margin: 0px;
+  padding: 20px;
+}
 .createPlanet {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start
+/* align-content: left; */
+}
+.editPlanet {
   display: flex;
   flex-direction: column;
   align-items: flex-start
@@ -104,4 +113,8 @@ margin: 30px
 }
 #Maincanvas{
   border: solid green 2px;
+}
+.center {
+  margin-left: auto;
+  margin-right: auto;
 }

@@ -6,15 +6,27 @@
         <%- include('../partials/_header');%>
     </head>
     <body>
-        <div class = 'container'>
         <%- include('../partials/_navbar');%>
-        <h1>Edit Planet Page</h1>
-        <form method="POST" action="/planets/<%=planet.id%>?_method=PUT">
-            Name: <input type="text" name="name" value="<%=planet.name%>"/><br/>
-            Description: <input type="text" name="about" value="<%=planet.about%>"/><br/>
-            <br/>
-            <input type="submit" name="" value="Submit Changes"/>
-        </form>
-        </div>
+        <p>
+            <div class = 'container'>
+                <div class = 'row'>
+                    <div class = 'col 4 editPlanet'>
+                        <h1 class="center">Edit Planet Page</h1>
+                        <form method="POST" class="center" action="/planets/<%=planet.id%>?_method=PUT">
+                    Name: <br><input type="text" name="name" value="<%=planet.name%>"/><br>
+                    Description:<br><input type="text" name="about" value="<%=planet.about%>"/><br>
+                    Planet X Coordinate<br><input type="number" name="x"><br> Planet Y Coordinate:<br><input type="number" name="y"><br>
+                    <input type="submit" name="" value="Submit Changes"/>
+                        </form >
+                            <form class="center" action="/planets/<%=planet._id%>?_method=DELETE" method="POST">
+                                <button type="submit">Delete Planet</button>
+                            </form>
+                    </div>
+                <div class = 'col 8'>
+                    <img src = "/assets/images/create-planet.png">
+                 </div>
+                </div>
+            </div>
+        </p>
     </body>
 </html>
