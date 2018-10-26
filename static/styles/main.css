@@ -102,18 +102,8 @@ margin: 30px
   align-items: flex-start
 /* align-content: left; */
 }
-#Astrogation{
-  border: solid green 2px;
-}
-#Information{
-  border: solid green 2px;
-}
-#Inventory{
-  border: solid green 2px;
-}
-#Maincanvas{
-  border: solid green 2px;
-}
+
+
 .center {
   margin-left: auto;
   margin-right: auto;
