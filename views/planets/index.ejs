@@ -5,13 +5,19 @@
     <title></title>
     <%- include('../partials/_header');%>
   </head>
-  <div class = 'container'>
   <body>
     <%- include('../partials/_navbar');%>
+    <div class= 'container'>
+        <div class = 'row'>
+          <div class = 'col 4 planetary-systems'>
     <h2>Planetary systems:</h2>
     <% for(i=0;i<planets.length;i++){%>
     <a href="planets/<%=planets[i].id%>"><%=planets[i].name%></a></br>
     <%}%>
+        </div>
+        
+      </div>
+    </div>
   </body>
-  </div>
+  
 </html>

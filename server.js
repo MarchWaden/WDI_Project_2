@@ -12,7 +12,7 @@ const session = require('express-session')
 const requireLogin = require('./middleware/requireLogin')
 const MongoDBStore = require('connect-mongodb-session')(session);
 const store = new MongoDBStore({
-  uri: 'mongodb://localhost:27017/connect_mongodb_session_test',
+  uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/connect_mongodb_session_test',
   collection: 'mySessions'
 });
 store.on('connected', function() {
@@ -38,7 +38,7 @@ app.use(session({
   saveUninitialized: true
 }));
  
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
@@ -63,7 +63,7 @@ app.use((req, res, next)=>{
 require('./db/db');
 
 app.use('/users', usersController);
-app.use('/planets',requireLogin, planetsController);
+app.use('/planets', planetsController);
 app.use('/game', gameController);
 app.use('/auth', authController);
 

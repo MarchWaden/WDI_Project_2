@@ -5,24 +5,23 @@
     <title>Planet Creation</title>
     <%- include('../partials/_header');%>
   </head>
-  <div class = 'container'>
-
   <body>
     <%- include('../partials/_navbar');%>
     <p>
+    <div class = 'container'>
       <div class = 'row'>
         <div class = 'col 4 createPlanet'>
             <h4>Create new planet</h4>
           <form action="/planets" method="post">
-            Name:<input type="text" name="name">
-            Description:<textarea name="about"></textarea>
-            Planet X Coordinate:<input type="number" name="x">Planet Y Coordinate:<input type="number" name="y">
-            Planet Image:<input type="number" name="image"></input>
+            Name:<input class ='form' type="text" name="name">
+            Description:<textarea class = 'form' name="about"></textarea>
+            Planet X Coordinate:<input class = 'form' type="number" name="x">Planet Y Coordinate:<input class='form' type="number" name="y">
+            Planet Image:<input placeholder = 'Enter 0, 1, or 2 to select' class='form'type="number" name="image"></input>
             <input type="submit" value="Submit Planet!">
           </form>
       </div>
       <div class = 'col 8'>
-        <img src = '../assets/images/create-planet.png'>
+        <img src = '/assets/images/create-planet.png'>
       </div>
     </div>
   </p>

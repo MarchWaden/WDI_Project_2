@@ -7,6 +7,7 @@ let currentWidth = 1100;
 let currentHeight = 550;
 let clock = 0;
 let images = [];
+let display = false;
 const iceDwarf = new Image()
 const mars = new Image()
 const volcanicPlanet = new Image()
@@ -45,6 +46,7 @@ const getPlanets = () => {
   })
 }
 const selector = {
+  target: null,
   active: false,
   drawSelector (){
     x = selector.target.x-currentX;
@@ -87,7 +89,11 @@ const selector = {
       }
 };
 const displayInfo = (object) => {
-  $('#Information').html(`Creator: ${object.creator} </br> Information: ${object.about}`);
+  if (display == true){
+  $('#Information').html(`Name:${object.name}</br> Creator: ${object.creator} </br> Information: ${object.about} Coordinates: ${object.x},${object.y}`);
+  }else{
+    $('#Information').html(`Screen Coordinates: ${currentX},${currentY}`);
+  }
 }
 const clearInfo = () => {
   $('#Information').html('');
@@ -101,6 +107,7 @@ const eventListeners = () => {
     console.log(x,y);
     for(i=0;i<planets.length;i++){
       if(Math.sqrt(Math.pow((planets[i].x-(currentX+x)),2)+Math.pow((planets[i].y-(currentY+y)),2)) <= 30){
+        display = true;
         selector.target = planets[i];
         selector.x = planets[i].x;
         selector.y = planets[i].y;
@@ -108,25 +115,31 @@ const eventListeners = () => {
         selector.radians = 0;
         selector.active = true;
         displayInfo(planets[i]);
-        i = planets.length;
+        i = planets.length;x
       }else{
+        selector.target = null;
         selector.active = false;
-        clearInfo();
+        display = false;
+        displayInfo();
       }
     }
   });
   document.addEventListener('keydown', (event) => {
     if (event.which == 65){
       currentX -= 100;
+      displayInfo(selector.target);
     }
     if (event.which == 68){
       currentX += 100;
+      displayInfo(selector.target);
     }
     if (event.which == 83){
       currentY += 100;
+      displayInfo(selector.target);
     }
     if (event.which == 87){
       currentY -= 100;
+      displayInfo(selector.target);
   }})
 
 }
