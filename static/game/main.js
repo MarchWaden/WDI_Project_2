@@ -106,7 +106,7 @@ const displayInfo = (object) => {
   }
 }
 const clearInfo = () => {
-  $('#Information').html('');
+  $('#Information').html('To move your view, use the keys WASD. To view information about a specific planet, click on it.');
 }
 const eventListeners = () => {
   $('#Astrogation').on('click', (event) => {
@@ -173,3 +173,4 @@ const renderLoop = setInterval(() => {
 },60)
 getPlanets();
 eventListeners();
+clearInfo();
