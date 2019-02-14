@@ -13,6 +13,16 @@ const mars = new Image()
 const volcanicPlanet = new Image()
 $('#Maincanvas').html(`<canvas height="700" width="1050" id="Astrogation"></canvas>`);
 
+function escapeHtml(text) {
+    'use strict';
+    return text.replace(/[\"&'\/<>]/g, function (a) {
+        return {
+            '"': '&quot;', '&': '&amp;', "'": '&#39;',
+            '/': '&#47;',  '<': '&lt;',  '>': '&gt;'
+        }[a];
+    });
+}
+
 let ctx = document.getElementById('Astrogation');
 ctx = ctx.getContext('2d');
 ctx.strokeStyle = "red";
@@ -90,7 +100,7 @@ const selector = {
 };
 const displayInfo = (object) => {
   if (display == true){
-  $('#Information').html(`Name:${object.name}</br> Creator: ${object.creator} </br> Information: ${object.about} Coordinates: ${object.x},${object.y}`);
+  $('#Information').html(`Name:${escapeHtml(object.name)}</br> Creator: ${escapeHtml(object.creator)} </br> Information: ${escapeHtml(object.about)} Coordinates: ${object.x},${object.y}`);
   }else{
     $('#Information').html(`Screen Coordinates: ${currentX},${currentY}`);
   }
