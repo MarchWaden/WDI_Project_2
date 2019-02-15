@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const connectionString =process.env.MONGODB_URI || 'mongodb://stellarium:stellarium@localhost/planets';
+const connectionString =process.env.MONGODB_URI || 'mongodb://localhost/planets';
 
 mongoose.connect(connectionString, { useNewUrlParser: true });
 
