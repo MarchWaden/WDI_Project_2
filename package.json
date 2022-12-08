@@ -18,10 +18,10 @@
   "homepage": "https://github.com/MarchWaden/WDI_Project_2#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.20.1",
     "connect-mongodb-session": "^2.0.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.4",
+    "express": "^4.18.2",
     "express-session": "^1.15.6",
     "hover.css": "^2.3.2",
     "method-override": "^3.0.0",
